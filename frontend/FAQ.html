@@ -4,7 +4,292 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Help & Support - Kiwi Kart</title>
-    <link rel="stylesheet" href="/frontend/css/faq.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+        color: white;
+        padding: 1.5rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-img {
+        height: 55px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .back-link {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        transition: all 0.3s;
+        font-weight: 500;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        opacity: 0.95;
+      }
+
+      .content-section {
+        padding: 60px 20px;
+      }
+
+      .help-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .help-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s;
+      }
+
+      .help-card:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        transform: translateY(-5px);
+      }
+
+      .help-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .help-card h3 {
+        font-size: 1.5rem;
+        color: #4caf50;
+        margin-bottom: 15px;
+      }
+
+      .help-card p {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .help-card a {
+        color: #4caf50;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.3s;
+      }
+
+      .help-card a:hover {
+        color: #45a049;
+        gap: 10px;
+      }
+
+      .faq-section {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        margin-bottom: 40px;
+      }
+
+      .faq-title {
+        font-size: 2rem;
+        color: #4caf50;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #f0f0f0;
+        padding: 0;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-question {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+        padding: 20px 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: color 0.3s;
+        user-select: none;
+      }
+
+      .faq-question:hover {
+        color: #4caf50;
+      }
+
+      .faq-question::after {
+        content: "+";
+        font-size: 1.5rem;
+        color: #4caf50;
+        transition: transform 0.3s;
+      }
+
+      .faq-question.active::after {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        color: #666;
+        line-height: 1.8;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0;
+      }
+
+      .faq-answer.active {
+        max-height: 500px;
+        padding-bottom: 20px;
+      }
+
+      .contact-section {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #4caf50;
+      }
+
+      .contact-section p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        color: #666;
+      }
+
+      .contact-methods {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .contact-method {
+        background: #f9f9f9;
+        padding: 30px 40px;
+        border-radius: 15px;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s;
+      }
+
+      .contact-method:hover {
+        border-color: #4caf50;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+      }
+
+      .contact-method strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+        color: #4caf50;
+      }
+
+      .contact-method span {
+        color: #666;
+      }
+
+      footer {
+        background: #ff9800;
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 50px;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .help-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .faq-section {
+          padding: 30px 20px;
+        }
+
+        .contact-section {
+          padding: 40px 20px;
+        }
+
+        .contact-methods {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>

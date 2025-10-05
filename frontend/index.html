@@ -673,18 +673,28 @@
 
                 if (!response.ok) {
                     const errorData = await response.json().catch(() => ({}));
-                    if (errorData.detail && typeof errorData.detail === "string") {
-                        if (errorData.detail.includes("Missing price for")
-                            || errorData.detail.includes("not found")
-                            || errorData.detail.includes("not available")) {
+                    const detail = (typeof errorData.detail === "string" ? errorData.detail : "").toLowerCase();
+
+                    if (detail) {
+                        const shouldFallbackToPerItem =
+                            detail.includes("missing price for") ||
+                            detail.includes("not found") ||
+                            detail.includes("not available") ||
+                            detail.includes("no store has all requested items");
+
+                        if (shouldFallbackToPerItem) {
                             await searchItemsIndividually(items, resultsContainer, radiusKm);
                             return;
-                        } else if (errorData.detail.includes("No stores within the radius")) {
+                        }
+
+                        if (detail.includes("no stores within the radius")) {
                             throw new Error("NO_STORES_FOUND");
                         }
                     }
-                    throw new Error(`API_ERROR:${errorData.detail || response.statusText}`);
+
+                    throw new Error(`API_ERROR:${detail || response.statusText}`);
                 }
+
 
                 const data = await response.json();
                 displayResults(data, items);

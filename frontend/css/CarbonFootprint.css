@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .co2-pill {
   background: #e8f5e9;
   color: #2e7d32;
@@ -18,26 +17,9 @@
   font-weight: 700;
 }
 
-.co2-note { margin-left: 6px; color: #2e7d32; opacity: .9; font-weight: 600; }
-=======
-.co2-pill {
-  background: #e8f5e9;
+.co2-note {
+  margin-left: 6px;
   color: #2e7d32;
-  border: 1px solid #c8e6c9;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 0.9rem;
+  opacity: .9;
   font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
 }
-
-.green-adjusted {
-  font-size: 1rem;
-  color: #2e7d32;
-  font-weight: 700;
-}
-
-.co2-note { margin-left: 6px; color: #2e7d32; opacity: .9; font-weight: 600; }
->>>>>>> 7ab2460d74f9962d645ae67688576627eba5aa44

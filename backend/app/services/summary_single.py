@@ -4,9 +4,9 @@ from app.repositories.data_access import load_stores, load_prices
 from app.services.geo import haversine_km
 
 DEFAULT_UNIT = {
-    "milk": "L",
+    "milk": "mL",
     "egg": "each",
-    "bread": "each",
+    "bread": "100g",
     "rice": "100g",
     "coffee": "100g",
     "beef": "100g",

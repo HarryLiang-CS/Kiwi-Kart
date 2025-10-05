@@ -22,7 +22,7 @@ def build_single_store_summary(req: SummaryRequest) -> SummaryResponse:
 
     # 2) 价格映射 (store,item)->最低价
     prices = load_prices()
-    price_map: Dict[Tuple[str, str], float] = {}
+    price_map: Dict[Tuple[str, str], float] = {}#dictionary, two key 1 value
     allowed = {s["id"] for s in stores_in}
     for r in prices:
         if r["store_id"] in allowed:
@@ -30,12 +30,10 @@ def build_single_store_summary(req: SummaryRequest) -> SummaryResponse:
             if (key not in price_map) or (r["price"] < price_map[key]):
                 price_map[key] = r["price"]
 
-    # 3) 输出给前端画表的 cells
     cells: List[PriceCell] = []
     for (sid, it), p in price_map.items():
         cells.append(PriceCell(store_id=sid, item=it, unit=DEFAULT_UNIT.get(it, "each"), price=float(p)))
 
-    # 4) 每家店的总价（假设都不缺货）
     singles: List[SingleStoreTotal] = []
     for s in stores_in:
         total = 0.0
@@ -46,7 +44,6 @@ def build_single_store_summary(req: SummaryRequest) -> SummaryResponse:
             total += price_map[key]
         singles.append(SingleStoreTotal(store_id=s["id"], total=round(total, 2)))
 
-    # 5) 选最便宜的一家（并列则距离近者优先）
     singles_sorted = sorted(
         singles,
         key=lambda x: (x.total, next(st["distance_km"] for st in stores_in if st["id"] == x.store_id))

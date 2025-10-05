@@ -919,7 +919,7 @@ const MODE_NOTE = {
   }
 
   html += `
-    <h2 class="section-title">Price Comparison Results</h2>
+    <h2 class="section-title">Top 3 Cheapest Stores</h2>
     ${
       closestStore
         ? `<div style="text-align:center;margin-bottom:30px;">
@@ -934,9 +934,9 @@ const MODE_NOTE = {
             </a>
           </div>`
         : ""
-    }
-    <div class="results-grid">
-      ${storeResults.map((store) => `
+    } 
+    <div class="results-grid"> 
+      ${storeResults.slice(0, 3).map((store) => `
         <div class="store-card">
           <div class="store-header">
             <div class="store-name">

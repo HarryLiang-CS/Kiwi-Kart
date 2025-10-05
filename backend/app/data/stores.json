@@ -1,0 +1,5 @@
+[
+  {"id": "walmart_marine", "name": "Walmart (Marine Dr)", "lat": 49.2100, "lng": -123.1160},
+  {"id": "tandt_richmond", "name": "T&T (Richmond)",      "lat": 49.1700, "lng": -123.1300},
+  {"id": "nofrills_kings", "name": "No Frills (Kingsway)","lat": 49.2400, "lng": -123.0650}
+]

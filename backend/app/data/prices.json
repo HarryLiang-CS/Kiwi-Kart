@@ -1,0 +1,13 @@
+[
+  {"store_id": "walmart_marine", "item_key": "milk",  "unit":"L",    "price": 2.49},
+  {"store_id": "walmart_marine", "item_key": "eggs",  "unit":"each", "price": 0.35},
+  {"store_id": "walmart_marine", "item_key": "bread", "unit":"each", "price": 2.99},
+
+  {"store_id": "tandt_richmond", "item_key": "milk",  "unit":"L",    "price": 2.79},
+  {"store_id": "tandt_richmond", "item_key": "eggs",  "unit":"each", "price": 0.33},
+  {"store_id": "tandt_richmond", "item_key": "bread", "unit":"each", "price": 3.49},
+
+  {"store_id": "nofrills_kings", "item_key": "milk",  "unit":"L",    "price": 2.39},
+  {"store_id": "nofrills_kings", "item_key": "eggs",  "unit":"each", "price": 0.36},
+  {"store_id": "nofrills_kings", "item_key": "bread", "unit":"each", "price": 2.59}
+]

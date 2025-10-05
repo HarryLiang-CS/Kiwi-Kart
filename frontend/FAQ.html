@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help & Support - Kiwi Kart</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+        color: white;
+        padding: 1.5rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-img {
+        height: 55px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .back-link {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        transition: all 0.3s;
+        font-weight: 500;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        opacity: 0.95;
+      }
+
+      .content-section {
+        padding: 60px 20px;
+      }
+
+      .help-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .help-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s;
+      }
+
+      .help-card:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        transform: translateY(-5px);
+      }
+
+      .help-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .help-card h3 {
+        font-size: 1.5rem;
+        color: #4caf50;
+        margin-bottom: 15px;
+      }
+
+      .help-card p {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .help-card a {
+        color: #4caf50;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.3s;
+      }
+
+      .help-card a:hover {
+        color: #45a049;
+        gap: 10px;
+      }
+
+      .faq-section {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        margin-bottom: 40px;
+      }
+
+      .faq-title {
+        font-size: 2rem;
+        color: #4caf50;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #f0f0f0;
+        padding: 0;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-question {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+        padding: 20px 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: color 0.3s;
+        user-select: none;
+      }
+
+      .faq-question:hover {
+        color: #4caf50;
+      }
+
+      .faq-question::after {
+        content: "+";
+        font-size: 1.5rem;
+        color: #4caf50;
+        transition: transform 0.3s;
+      }
+
+      .faq-question.active::after {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        color: #666;
+        line-height: 1.8;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0;
+      }
+
+      .faq-answer.active {
+        max-height: 500px;
+        padding-bottom: 20px;
+      }
+
+      .contact-section {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #4caf50;
+      }
+
+      .contact-section p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        color: #666;
+      }
+
+      .contact-methods {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .contact-method {
+        background: #f9f9f9;
+        padding: 30px 40px;
+        border-radius: 15px;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s;
+      }
+
+      .contact-method:hover {
+        border-color: #4caf50;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+      }
+
+      .contact-method strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+        color: #4caf50;
+      }
+
+      .contact-method span {
+        color: #666;
+      }
+
+      footer {
+        background: #ff9800;
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 50px;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .help-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .faq-section {
+          padding: 30px 20px;
+        }
+
+        .contact-section {
+          padding: 40px 20px;
+        }
+
+        .contact-methods {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <img
+              src="image/kiwi_cart_logo.png"
+              alt="Kiwi Kart Logo"
+              class="logo-img"
+            />
+          </div>
+          <a href="index.html" class="back-link">
+            <span>←</span>
+            <span>Back to Home</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Help & Support</h1>
+        <p>We're here to help you save on groceries</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <div class="help-grid">
+          <div class="help-card">
+            <div class="help-icon">📖</div>
+            <h3>Getting Started</h3>
+            <p>
+              Learn how to use Kiwi Kart to compare prices and find the best
+              deals near you.
+            </p>
+            <a href="#faq">Read the FAQ →</a>
+          </div>
+
+          <div class="help-card">
+            <div class="help-icon">🔍</div>
+            <h3>How to Search</h3>
+            <p>
+              Enter grocery items separated by commas. We'll show you prices
+              from stores within the 5 km radius instantly.
+            </p>
+            <a href="#faq">Learn more →</a>
+          </div>
+
+          <div class="help-card">
+            <div class="help-icon">💰</div>
+            <h3>Save Money</h3>
+            <p>
+              Compare total prices across stores to find where you'll save the
+              most on your shopping list.
+            </p>
+            <a href="#faq">Tips & tricks →</a>
+          </div>
+        </div>
+
+        <div class="faq-section" id="faq">
+          <h2 class="faq-title">Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How do I search for items?
+            </div>
+            <div class="faq-answer">
+              Simply type the items you want to buy in the search bar, separated
+              by commas. For example: "milk, eggs, bread". Click the Search
+              button and we'll show you prices from stores near you.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Which stores do you compare?
+            </div>
+            <div class="faq-answer">
+              We currently compare prices from major grocery stores including
+              Walmart, Costco, and T&T Supermarket. We're constantly adding more
+              stores to give you better options. So stay tuned!
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How do you calculate the total price?
+            </div>
+            <div class="faq-answer">
+              We add up the individual prices of all items in your search from
+              each store, showing you the total cost and sorting stores from
+              lowest to highest price.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Are the prices accurate?
+            </div>
+            <div class="faq-answer">
+              We update our prices regularly to ensure accuracy. However, prices
+              may vary by location and can change. We recommend confirming
+              prices in-store before making your purchase.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What if an item is not available?
+            </div>
+            <div class="faq-answer">
+              If an item you search for is not in our database, we'll show you a
+              notification letting you know which items couldn't be found. You
+              can continue with the available items.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How is distance calculated?
+            </div>
+            <div class="faq-answer">
+              We use your location to calculate the approximate distance to each
+              store, and display the Supermarkets within 5 km. You can allow location access for more accurate results, or
+              we'll use a default location.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Is Kiwi Kart free to use?
+            </div>
+            <div class="faq-answer">
+              Yes! Kiwi Kart is completely free. Our goal is to help you save
+              money on your grocery shopping.
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-section">
+          <h2>Still Need Help?</h2>
+          <p>Our support team is ready to assist you</p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <strong>Phone</strong>
+              <span>1-800-KIWIKART</span>
+            </div>
+            <div class="contact-method">
+              <strong>Email</strong>
+              <span>help@kiwikart.com</span>
+            </div>
+            <div class="contact-method">
+              <strong>Live Chat</strong>
+              <span>COMING THIS WINTER!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Kiwi Kart. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      function toggleFaq(element) {
+        const answer = element.nextElementSibling;
+        const isActive = answer.classList.contains("active");
+
+        // Close all other FAQs
+        document.querySelectorAll(".faq-answer").forEach((item) => {
+          item.classList.remove("active");
+        });
+        document.querySelectorAll(".faq-question").forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        // Toggle current FAQ
+        if (!isActive) {
+          answer.classList.add("active");
+          element.classList.add("active");
+        }
+      }
+    </script>
+  </body>
+</html>

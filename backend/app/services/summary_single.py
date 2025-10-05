@@ -45,7 +45,6 @@ def build_single_store_summary(req: SummaryRequest) -> SummaryResponse:
     for (sid, it), p in price_map.items():
         cells.append(PriceCell(store_id=sid, item=it, unit=DEFAULT_UNIT.get(it, "each"), price=float(p)))
 
-    # --- 5. 计算每个商店的总价 ---
     singles: List[SingleStoreTotal] = []
     for s in stores_in:
         missing = False
@@ -70,7 +69,6 @@ def build_single_store_summary(req: SummaryRequest) -> SummaryResponse:
         ),
     )
 
-    # --- 6. 找出最佳单店方案 ---
     best = singles_sorted[0]
     best_store = next(st for st in stores_in if st["id"] == best.store_id)
     assignment_single = {it: best.store_id for it in items}
@@ -82,7 +80,6 @@ def build_single_store_summary(req: SummaryRequest) -> SummaryResponse:
         assignment=assignment_single,
     )
 
-    # --- 7. 计算最佳“双店组合”方案 ---
     combo_plans = []
     for i in range(len(stores_in)):
         for j in range(i + 1, len(stores_in)):
@@ -115,12 +112,11 @@ def build_single_store_summary(req: SummaryRequest) -> SummaryResponse:
     if combo_plans:
         best_combo = min(combo_plans, key=lambda x: x["total"])
 
-    # --- 8. 返回结果 ---
     return SummaryResponse(
         items=items,
         stores=stores_in,
         prices=cells,
         single_store_totals=singles_sorted,
         best_single_store=best_summary,
-        best_two_store_combo=best_combo,  # 新增字段
+        best_two_store_combo=best_combo,  
     )

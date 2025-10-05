@@ -464,7 +464,6 @@
         const answer = element.nextElementSibling;
         const isActive = answer.classList.contains("active");
 
-        // Close all other FAQs
         document.querySelectorAll(".faq-answer").forEach((item) => {
           item.classList.remove("active");
         });
@@ -472,7 +471,6 @@
           item.classList.remove("active");
         });
 
-        // Toggle current FAQ
         if (!isActive) {
           answer.classList.add("active");
           element.classList.add("active");

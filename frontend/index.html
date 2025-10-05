@@ -470,7 +470,6 @@
             <p>Find the best deals across all stores near you</p>
             <div class="search-container">
                 <div class="search-bar">
-                    <!-- Travel & Carbon Settings -->
                     <div class="search-hint" style="margin-top:6px;">
                         <label for="transportMode"><strong>Travel mode:</strong></label>
                         <select id="transportMode">
@@ -538,7 +537,6 @@
         }
         getUserLocation();
 
-        // ---------- CARBON HELPERS ----------
         const EMISSION_FACTORS = {
             car: 0.192, motorbike: 0.103, rideshare: 0.096,
             transit: 0.089, walk: 0.0, bike: 0.0
@@ -565,7 +563,6 @@
         const fmtKg = v => `${v.toFixed(2)} kg`;
         const fmtMoney = v => `$${Number(v).toFixed(2)}`;
 
-        // ---------- FALLBACK: search items individually ----------
         async function searchItemsIndividually(items, resultsContainer, radiusKm) {
             console.log("Searching items individually with radius =", radiusKm);
             const availableItems = [];
@@ -634,7 +631,6 @@
             return Array.from(storeTotals.entries()).map(([store_id, total]) => ({ store_id, total }));
         }
 
-        // ---------- MAIN SEARCH ----------
         async function searchPrices() {
             const searchInput = document.getElementById("searchInput");
             const radiusInput = document.getElementById("radius_km");
@@ -747,7 +743,6 @@
             }
         }
 
-        // ---------- RENDER RESULTS (with CO₂ + maps + closest store) ----------
         let _lastDataForCarbon = null;
         let _lastItemsForCarbon = null;
 
@@ -794,7 +789,6 @@
                     .filter(p => p.store_id === storeTotal.store_id)
                     .map(p => ({ name: p.item, price: p.price.toFixed(2), unit: p.unit }));
 
-                // Distance
                 let oneWayKm = null;
                 if (typeof storeInfo.distance_km === 'number') {
                     oneWayKm = storeInfo.distance_km;
@@ -802,10 +796,8 @@
                     oneWayKm = distanceKm(userLocation.lat, userLocation.lng, storeInfo.lat, storeInfo.lng);
                 }
 
-                // CO2
                 const co2Kg = oneWayKm != null ? computeRoundTripKgCO2e(oneWayKm, mode) : null;
 
-                // Maps link
                 let mapsLink = "";
                 if (storeInfo.lat !== undefined && storeInfo.lng !== undefined
                     && !isNaN(Number(storeInfo.lat)) && !isNaN(Number(storeInfo.lng))) {

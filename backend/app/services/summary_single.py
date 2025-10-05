@@ -3,16 +3,27 @@ from app.models.dto import SummaryRequest, SummaryResponse, PriceCell, SingleSto
 from app.repositories.data_access import load_stores, load_prices
 from app.services.geo import haversine_km
 
-DEFAULT_UNIT = {"milk": "L", "eggs": "each", "bread": "each"}
+DEFAULT_UNIT = {
+    "milk": "L",
+    "egg": "each",
+    "bread": "each",
+    "rice": "100g",
+    "coffee": "100g",
+    "beef": "100g",
+    "blueberries": "100g",
+    "banana": "100g",
+    "orange": "100g",
+    "butter": "100g"
+}
 
 def _norm(s: str) -> str:
     return s.strip().lower()
 
 def build_single_store_summary(req: SummaryRequest) -> SummaryResponse:
-    items = [_norm(x) for x in req.items]#给每个items去空格以及小写
+    items = [_norm(x) for x in req.items]
 
-    stores_all = load_stores()#读取json文件，返回store值
-    stores_in = []# empty list
+    stores_all = load_stores()
+    stores_in = []
     for s in stores_all:
         d = haversine_km(req.user_lat, req.user_lng, s["lat"], s["lng"])
         if d <= req.radius_km:
@@ -20,13 +31,13 @@ def build_single_store_summary(req: SummaryRequest) -> SummaryResponse:
     if not stores_in:
         raise ValueError("No stores within the radius.")
 
-    # 2) 价格映射 (store,item)->最低价
     prices = load_prices()
-    price_map: Dict[Tuple[str, str], float] = {}#dictionary, two key 1 value
+    price_map: Dict[Tuple[str, str], float] = {}
     allowed = {s["id"] for s in stores_in}
     for r in prices:
-        if r["store_id"] in allowed:
-            key = (r["store_id"], _norm(r["item_key"]))
+        it_norm = _norm(r["item_key"])
+        if r["store_id"] in allowed and it_norm in items:
+            key = (r["store_id"], it_norm)
             if (key not in price_map) or (r["price"] < price_map[key]):
                 price_map[key] = r["price"]
 

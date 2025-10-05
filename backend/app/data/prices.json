@@ -1,13 +1,602 @@
 [
-  {"store_id": "walmart_marine", "item_key": "milk",  "unit":"L",    "price": 2.49},
-  {"store_id": "walmart_marine", "item_key": "eggs",  "unit":"each", "price": 0.35},
-  {"store_id": "walmart_marine", "item_key": "bread", "unit":"each", "price": 2.99},
-
-  {"store_id": "tandt_richmond", "item_key": "milk",  "unit":"L",    "price": 2.79},
-  {"store_id": "tandt_richmond", "item_key": "eggs",  "unit":"each", "price": 0.33},
-  {"store_id": "tandt_richmond", "item_key": "bread", "unit":"each", "price": 3.49},
-
-  {"store_id": "nofrills_kings", "item_key": "milk",  "unit":"L",    "price": 2.39},
-  {"store_id": "nofrills_kings", "item_key": "eggs",  "unit":"each", "price": 0.36},
-  {"store_id": "nofrills_kings", "item_key": "bread", "unit":"each", "price": 2.59}
+    {
+        "store_id": "walmart_marine",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.15
+    },
+    {
+        "store_id": "walmart_marine",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.306
+    },
+    {
+        "store_id": "walmart_marine",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.37
+    },
+    {
+        "store_id": "walmart_marine",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.43
+    },
+    {
+        "store_id": "walmart_marine",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 3.51
+    },
+    {
+        "store_id": "walmart_marine",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 5
+    },
+    {
+        "store_id": "walmart_marine",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.551
+    },
+    {
+        "store_id": "walmart_marine",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.13
+    },
+    {
+        "store_id": "walmart_marine",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.43
+    },
+    {
+        "store_id": "walmart_marine",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.09
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.16
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.31
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.39
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.41
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 3.65
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 4.95
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.52
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.14
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.44
+    },
+    {
+        "store_id": "tnt_richmond",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.12
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.14
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.30
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.35
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.42
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 3.40
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 4.85
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.60
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.12
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.41
+    },
+    {
+        "store_id": "nofrills_kings",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.10
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.17
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.32
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.38
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.46
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 3.60
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 5.10
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.58
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.15
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.47
+    },
+    {
+        "store_id": "saveon_broadway",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.20
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.15
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.29
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.36
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.40
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 3.35
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 4.80
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.50
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.14
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.40
+    },
+    {
+        "store_id": "superstore_burnaby",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.08
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.16
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.30
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.37
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.45
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 3.55
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 4.90
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.53
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.14
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.42
+    },
+    {
+        "store_id": "tandt_metrotown",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.11
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.19
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.36
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.50
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.55
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 4.10
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 5.30
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.70
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.18
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.48
+    },
+    {
+        "store_id": "wholefoods_cambie",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.25
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.14
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.28
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.33
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.39
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 3.20
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 4.70
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.45
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.12
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.39
+    },
+    {
+        "store_id": "freshco_richmond",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.05
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.18
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.34
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.44
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.50
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 3.85
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 5.15
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.65
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.17
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.46
+    },
+    {
+        "store_id": "safeway_kerrisdale",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.18
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "milk",
+        "unit": "ml",
+        "price": 0.17
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "egg",
+        "unit": "each",
+        "price": 0.33
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "bread",
+        "unit": "100g",
+        "price": 0.40
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "rice",
+        "unit": "100g",
+        "price": 0.47
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "coffee",
+        "unit": "100g",
+        "price": 3.70
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "beef",
+        "unit": "100g",
+        "price": 4.95
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "blueberries",
+        "unit": "100g",
+        "price": 1.58
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "banana",
+        "unit": "100g",
+        "price": 0.15
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "orange",
+        "unit": "100g",
+        "price": 0.44
+    },
+    {
+        "store_id": "iga_downtown",
+        "item_key": "butter",
+        "unit": "100g",
+        "price": 1.13
+    }
 ]

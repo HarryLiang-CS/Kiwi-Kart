@@ -915,7 +915,7 @@
               is_best: isBestStore,
             };
           })
-          .sort((a, b) => parseFloat(a.total) - parseFloat(b.total));
+          .sort((a, b) => parseFloat(a.total) - parseFloat(b.total)).slice(0,3);
 
         let html = "";
 
